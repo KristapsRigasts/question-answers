@@ -4,10 +4,10 @@ App where user can answer questions with provided answers (only one of them is c
 
 ---
 
-User can start to answer questions only after providing his name and choosing question category.
-Progress bar is showing progress, in which question user is at the moment.
-Only one question answer is correct.
-After all questions have been answered result will be displayed.
+User can start to answer questions only after providing his name and choosing question category.<br>
+Progress bar is showing progress, in which question user is at the moment.<br>
+Only one question answer is correct.<br>
+After all questions have been answered result will be displayed.<br>
 All user question answers are saved in database table. Final result with correct answer amount is also saved in database table.
 
 ---
