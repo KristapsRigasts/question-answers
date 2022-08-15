@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="text-center mt-5">Welcome to Questions and Answers!</h2>
+
+<div class="mask d-flex align-items-center h-100 gradient-custom-3 mt-5">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-5">
+                        <h4 class="text-center mb-6">Please enter your name and choose question category</h4>
+                        <form action="/register" method="post">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="name">Your Name</label>
+                                <input required type="text" id="name" name="name" class="form-control form-control-lg"
+                                value="{{ session.inputs.name }}"/>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="question_category">Question category</label>
+                                <select required id="question_category" name="question_category" class="form-control form-control-lg" >
+                                    <option value="" disabled selected hidden>Choose category</option>
+                                    {% for category in categories %}
+                                    <option value="{{ category.id }}">{{ category.categoryName }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit"
+                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Start</button>
+                            </div>
+
+                        </form>
+                        <div class="text-center mt-3">
+                            <p class="text-danger">
+                                <small>{{ session.errors.name[0] }}</small>
+                            </p>
+                            <p class="text-danger">
+                                <small>{{ session.errors.question_category[0] }}</small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
